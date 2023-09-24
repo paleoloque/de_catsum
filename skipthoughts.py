@@ -32,7 +32,7 @@ def load_model():
     Load the model with saved tables
     """
     # Load model options
-    print 'Loading model parameters...'
+    print('Loading model parameters...')
     with open('%s.pkl'%path_to_umodel, 'rb') as f:
         uoptions = pkl.load(f)
     with open('%s.pkl'%path_to_bmodel, 'rb') as f:
@@ -47,18 +47,18 @@ def load_model():
     btparams = init_tparams(bparams)
 
     # Extractor functions
-    print 'Compiling encoders...'
+    print('Compiling encoders...')
     embedding, x_mask, ctxw2v = build_encoder(utparams, uoptions)
     f_w2v = theano.function([embedding, x_mask], ctxw2v, name='f_w2v')
     embedding, x_mask, ctxw2v = build_encoder_bi(btparams, boptions)
     f_w2v2 = theano.function([embedding, x_mask], ctxw2v, name='f_w2v2')
 
     # Tables
-    print 'Loading tables...'
+    print('Loading tables...')
     utable, btable = load_tables()
 
     # Store everything we need in a dictionary
-    print 'Packing up...'
+    print('Packing up...')
     model = {}
     model['uoptions'] = uoptions
     model['boptions'] = boptions
