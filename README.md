@@ -1,2 +1,5 @@
-# de_catsum
-German news articles summarizer
+# German news articles summarizer
+# Context
+# Data Sources
+# Running the code
+# FAQ and Feedback
